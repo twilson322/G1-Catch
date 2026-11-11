@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "pybind11>=2.11"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "g1catch"
+version = "0.1.0"
+description = "Stereo-vision ball catching on a simulated Unitree G1 upper body"
+requires-python = ">=3.10"
+dependencies = ["mujoco>=3.1", "numpy", "scipy", "torch", "osqp", "scikit-learn", "matplotlib", "pytest"]
+
+[tool.setuptools]
+packages = ["g1catch"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["render: needs an offscreen OpenGL context (MUJOCO_GL=osmesa)"]

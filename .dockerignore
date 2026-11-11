@@ -1,0 +1,7 @@
+.git
+**/__pycache__
+*.so
+build/
+*.egg-info
+results/detector_data.npz
+results/*.log

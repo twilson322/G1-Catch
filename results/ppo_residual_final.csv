@@ -1,0 +1,3 @@
+condition,caught,n,only_this_caught,mcnemar_p
+model-based,126,160,12,0.12144948495551944
+with PPO correction,136,160,22,0.12144948495551944

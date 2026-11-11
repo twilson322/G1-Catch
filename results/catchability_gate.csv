@@ -1,0 +1,3 @@
+condition,throws,attempts,caught,failed_attempts,self_collisions
+no gate,200,163,112,51,31
+gate at 0.5,200,118,88,30,19

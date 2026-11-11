@@ -1,0 +1,18 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    env:
+      MUJOCO_GL: osmesa
+      PYOPENGL_PLATFORM: osmesa
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libosmesa6
+      - run: pip install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements.txt ruff
+      - run: pip install --no-deps -e .
+      - run: ruff check --select F,E9,B --ignore B905,B007 --line-length 125 g1catch scripts tests
+      - run: python -m pytest -q
